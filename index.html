@@ -1,1 +1,24 @@
-<!doctype html><html><head><meta charset="utf-8"/><script defer="defer" src="bundle.min.js"></script></head><body></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><title>ArtExplorer</title><script src="bundle.js"></script><link rel="stylesheet" href="https://use.typekit.net/rrw7kic.css"><script defer="defer" src="bundle.min.js"></script></head><body><div id="app"></div><script>const clientElement = document.getElementById('app');
+
+            ArtExplorer.init(clientElement, {
+                api_url: 'https://randomstate-customer-api.azurewebsites.net/',
+                assets_url: 'assets/',
+                lang: 'en',
+                gameIds: [
+                    { gameId: 8, cost: 5, prizeplan: [{ icon: 'vase', value: 5 }] },
+                    { gameId: 9, cost: 10, prizeplan: [{ icon: 'lamp', value: 10 }] },
+                    { gameId: 10, cost: 20, prizeplan: [{ icon: 'painting', value: 20 }] },
+                ],
+                callback_login: function () {
+                    console.log('Toggle login dialog');
+                },
+                callback_deposit: function () {
+                    console.log('Open deposit dialog');
+                },
+                callback_event: function (eventType, eventData) {
+                    console.log('Event:', eventType, eventData);
+                },
+                replayTicket: '...',
+                // Other features and toggles (in later versions)
+                // ...
+            });</script></body></html>
